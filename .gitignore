@@ -1,0 +1,18 @@
+# Directories
+node_modules/
+dist/
+
+# Files
+*.env
+*.log
+*.sqlite
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build Output
+build/
+out/
