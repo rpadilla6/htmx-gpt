@@ -1,0 +1,31 @@
+<!-- FILEPATH: /Users/ryanpadilla/Projects/hackfest23/dist/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://unpkg.com/htmx.org@1.9.7"
+      integrity="sha384-EAzY246d6BpbWR7sQ8+WEm40J8c3dHFsqC58IgPlh4kMbRRI6P6WA+LA/qGAyAu8"
+      crossorigin="anonymous"
+    ></script>
+    <title>HTMX Generator</title>
+  </head>
+  <body>
+    <h1>HTMX Generator</h1>
+    <h4>
+      Talk to the generator and see what htmx is returned! Give it your wildest
+      prompts and see what happens.
+    </h4>
+
+    <form hx-post="/generate" hx-target="#generatorTarget" hx-swap="innerHTML">
+      <textarea
+        placeholder="Show me a classic finnish breakfast in html and css"
+        name="prompt"
+      ></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="generatorTarget" style="height: 500px; width: 100vw"></div>
+  </body>
+</html>
