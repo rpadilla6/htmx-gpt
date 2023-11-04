@@ -4,7 +4,7 @@
   "description": "Silly chatgpt thing + htmx",
   "main": "server.ts",
   "scripts": {
-    "start": "ts-node-dev ./src/server.ts"
+    "start": "ts-node-dev ./src/server.ts & browser-sync start --files './**/*.html, dist/**/*.css' --port 4001 --proxy 'localhost:4000'"
   },
   "keywords": [
     "htmx",
@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.20",
+    "browser-sync": "^2.29.3",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2"
   }

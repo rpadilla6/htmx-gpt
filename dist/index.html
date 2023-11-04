@@ -4,12 +4,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://unpkg.com/htmx.org@1.9.7"
       integrity="sha384-EAzY246d6BpbWR7sQ8+WEm40J8c3dHFsqC58IgPlh4kMbRRI6P6WA+LA/qGAyAu8"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/class-tools.js"></script>
     <title>HTMX Generator</title>
   </head>
   <body>
@@ -19,14 +27,27 @@
       prompts and see what happens.
     </h4>
 
-    <form hx-post="/generate" hx-target="#generatorTarget" hx-swap="innerHTML">
-      <textarea
-        id="prompt"
-        placeholder="Show me a classic finnish breakfast in html and css"
-        name="prompt"
-      ></textarea>
-      <button type="submit">Submit</button>
+    <form
+      id="generator-form"
+      hx-post="/generate"
+      hx-target="#generatorTarget"
+      hx-swap="innerHTML"
+      hx-indicator="#theThinker"
+    >
+      <div>
+        <textarea
+          id="payload"
+          placeholder="Show me a classic finnish breakfast in html and css"
+          name="payload"
+          cols="50"
+          rows="7"
+        ></textarea>
+        <div id="thinkerContainer">
+          <div id="theThinker" class="htmx-indicator">🤔</div>
+          <button type="submit">Submit</button>
+        </div>
+      </div>
     </form>
-    <div id="generatorTarget" style="height: 500px; width: 100vw"></div>
+    <div id="generatorTarget" style="height: 500px; width: 100%"></div>
   </body>
 </html>

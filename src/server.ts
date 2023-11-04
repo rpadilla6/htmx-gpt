@@ -28,30 +28,39 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 const messages = [{ role: 'system', content: ChatSetup.systemPrompt }];
 
-// GET endpoint that returns "Hello, world!"
-app.post('/generate', async (req, res) => {
-  const { prompt } = req.body;
-  messages.push({ role: 'user', content: prompt });
-  const events = client.listChatCompletions(
-    process.env.OPENAI_DEPLOYMENT || '',
-    messages,
-    ChatSetup.chatParameters
-  );
+app.all('/*', async (req, res) => {
+  try {
+    const { payload } = req.body;
+    messages.push({
+      role: 'user',
+      content: `This prompt came to the following route: ${req.originalUrl}. Using that as API context, this is the payload to that route: ${payload}`,
+    });
+    const events = client.listChatCompletions(
+      process.env.OPENAI_DEPLOYMENT || '',
+      messages,
+      ChatSetup.chatParameters
+    );
 
-  let response = '';
-  for await (const event of events) {
-    for (const choice of event.choices) {
-      const delta = choice.delta?.content;
-      if (delta !== undefined) {
-        response += delta;
+    let response = '';
+    for await (const event of events) {
+      for (const choice of event.choices) {
+        const delta = choice.delta?.content;
+        if (delta !== undefined) {
+          response += delta;
+        }
       }
     }
+    messages.push({ role: 'system', content: response });
+
+    // Keep history to a max of 10
+    if (messages.length > 10) {
+      messages.splice(1, 2);
+    }
+    res.send(response);
+  } catch (e) {
+    console.log(e);
+    res.send('<div>Something went wrong. Try again!</div>');
   }
-  messages.push({ role: 'system', content: response });
-  if (messages.length > 10) {
-    messages.splice(1, 2);
-  }
-  res.send(response);
 });
 
 // Start the server

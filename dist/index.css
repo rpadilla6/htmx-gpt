@@ -1,0 +1,84 @@
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h4 {
+  text-align: center;
+  font-weight: 500;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#generator-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0;
+}
+
+#generator-form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+#generator-form textarea {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border: unset;
+  padding: 24px;
+  font-family: 'Raleway', sans-serif;
+  min-width: 200px;
+}
+
+#thinkerContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#theThinker {
+  margin-right: 20px;
+  transform-origin: center;
+  animation: spin-scale 1s infinite;
+  width: min-content;
+  font-size: x-large;
+  height: min-content;
+}
+
+@keyframes spin-scale {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+#generator-form button {
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: goldenrod;
+  border: unset;
+  padding: 10px;
+  font-weight: 500;
+  font-size: medium;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 10px;
+  cursor: pointer;
+}
