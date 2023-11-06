@@ -23,5 +23,7 @@ Enter what you would want generated in the textarea and see chatgpt return it as
 > Show me an animating oreo that when clicked will send a request to /bite that returns a new oreo with a bite out of it to replace that one.
 
 > Show me a classic finnish breakfast using only html and css
+
 and follow up with
+
 > Now have it so that when I click on a breakfast item it calls /eat and replaces that item with something else
