@@ -1,6 +1,8 @@
 # htmx-gpt
 
 Silly little hackfest idea to hook up chatgpt4 to act as an backend to return HTMX.
+<img width="598" alt="image" src="https://github.com/rpadilla6/htmx-gpt/assets/11849093/94bc08de-98ed-4cf6-89fd-b67004621e9a">
+
 
 ## Setup
 
