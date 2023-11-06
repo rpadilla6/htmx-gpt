@@ -6,7 +6,7 @@ Silly little hackfest idea to hook up chatgpt4 to act as an backend to return HT
 
 To run, first you will need to create an Azure OpenAI resource within Azure, here is some more info: https://learn.microsoft.com/en-us/azure/ai-services/openai/overview.
 
-Once you have created a resource, you will need to create a deployment. This is easiest through the Azure Portal, and once the deployment is created you should have all you need to fill out the .env file.
+Once you have created a resource, you will need to create a deployment, in my case I used gpt4. This is easiest through the Azure Portal, and once the deployment is created you should have all you need to fill out the .env file.
 
 ## Running
 

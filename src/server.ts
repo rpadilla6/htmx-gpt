@@ -38,7 +38,13 @@ app.all('/*', async (req, res) => {
     const events = client.listChatCompletions(
       process.env.OPENAI_DEPLOYMENT || '',
       messages,
-      ChatSetup.chatParameters
+      {
+        temperature: ChatSetup.chatParameters.temperature,
+        maxTokens: ChatSetup.chatParameters.maxResponseLength,
+        topP: ChatSetup.chatParameters.topProbablities,
+        frequencyPenalty: ChatSetup.chatParameters.frequencyPenalty,
+        presencePenalty: ChatSetup.chatParameters.presencePenalty,
+      }
     );
 
     let response = '';
